@@ -10,8 +10,7 @@ void readfile(){
     char name[256]; 
     printf("HOME : %s\n", getenv("HOME"));
     strcat(strcpy(name, getenv("HOME")), ".kapishrc");
-    printf("a");
-    printf("%s",name);
+    printf("name : %s",name);
     FILE* file = fopen(name, "r"); 
     char line[520];
 
@@ -136,7 +135,8 @@ void loop(){
 }
 
 int main(){
- signal(SIGINT, stop);   
+ signal(SIGINT, stop);  
+ readfile(); 
  loop();
  return 0;
 }
