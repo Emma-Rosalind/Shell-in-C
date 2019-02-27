@@ -12,8 +12,8 @@ void readfile(){
     char* path = getenv("HOME");
     printf("path : %s",path);
      strcpy(name, path);
-    /*printf("name : %s",name);
-    strcat(name, ".kapishrc");
+    printf("name : %s",name);
+    /*strcat(name, ".kapishrc");
     printf("name : %s",name);
     
     FILE* file = fopen(name, "r"); 
