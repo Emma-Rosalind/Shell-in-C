@@ -8,7 +8,9 @@
 //handle file
 void readfile(){
     char name[500]; 
-    strcpy(name, getenv("HOME"));
+    char* path = getenv("HOME");
+    printf("path : %s",path);
+    strcpy(name, path);
     printf("name : %s",name);
     strcat(name, ".kapishrc");
     printf("name : %s",name);
@@ -17,6 +19,9 @@ void readfile(){
 
     while (fgets(line, sizeof(line), file)) {
         printf("%s", line); 
+        if(parse(line)==0){
+            exit(0);
+        }
     }
     fclose(file);   
 }
