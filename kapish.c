@@ -8,15 +8,16 @@
 //handle file
 void readfile(){
     char name[500]; 
+    printf("home : %s", getenv("HOME"));
     char* path = getenv("HOME");
     printf("path : %s",path);
     strcpy(name, path);
     printf("name : %s",name);
     strcat(name, ".kapishrc");
     printf("name : %s",name);
+    
     FILE* file = fopen(name, "r"); 
     char line[520];
-
     while (fgets(line, sizeof(line), file)) {
         printf("%s", line); 
         if(parse(line)==0){
