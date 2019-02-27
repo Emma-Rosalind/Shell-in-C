@@ -12,7 +12,7 @@ void readfile(){
     strcpy(name, path);
    strcat(name, "/.kapishrc");
    printf("name : %s",name);
-    /* 
+    
     FILE* file = fopen(name, "r"); 
     char line[520];
     while (fgets(line, sizeof(line), file)) {
@@ -21,7 +21,7 @@ void readfile(){
             exit(0);
         }
     }
-    fclose(file); */  
+    fclose(file); 
 }
 //built in setenv
 void cUnsetenv(char** line){
