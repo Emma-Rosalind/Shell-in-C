@@ -91,8 +91,8 @@ int parse(char* line){
     
     tokens[i] = NULL;
     
-    if(tokens[0]==NULL){//empty
-        return 1;
+    if(tokens[0]==NULL){//EOF
+        return 0;
     }else if(strcmp(tokens[0], "exit")==0){
         return 0;
     }else if(strcmp(tokens[0], "setenv")==0){
@@ -123,7 +123,6 @@ void readfile(){
     FILE* file = fopen(name, "r"); 
     char line[520];
     while (fgets(line, sizeof(line), file)) {
-        printf("%s", line); 
         if(parse(line)==0){
             exit(0);
         }
