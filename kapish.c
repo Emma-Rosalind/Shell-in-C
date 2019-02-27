@@ -7,8 +7,7 @@
 
 //handle file
 void readfile(){
-    char name[200]; 
-    printf("HOME : %s\n", getenv("HOME"));
+    char name[500]; 
     strcpy(name, getenv("HOME"));
     printf("name : %s",name);
     strcat(name, ".kapishrc");
@@ -83,13 +82,13 @@ void cdir(char** line){
 
 //built in cd
 void cFork(char** line){
-  pid_t id= fork();
+ /*pid_t id= fork();
    if(id==0) {//child
         execvp(line[0], line);
         printf("Error starting child prosses\n");
     }else{
         waitpid(id, NULL, 0);
-    }
+    }*/
 }
 
 
