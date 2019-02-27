@@ -9,8 +9,8 @@
 void readfile(){
     //char name[500]; 
     printf("home : %s", getenv("HOME"));
-    /*char* path = getenv("HOME");
-     printf("path : %s",path);
+    char* path = getenv("HOME");
+    /* printf("path : %s",path);
     strcpy(name, path);
     printf("name : %s",name);
     strcat(name, ".kapishrc");
