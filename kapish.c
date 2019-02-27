@@ -7,10 +7,10 @@
 
 //handle file
 void readfile(){
-    char name[500]; 
+    //char name[500]; 
     printf("home : %s", getenv("HOME"));
-    char* path = getenv("HOME");
-    printf("path : %s",path);
+    /*char* path = getenv("HOME");
+     printf("path : %s",path);
     strcpy(name, path);
     printf("name : %s",name);
     strcat(name, ".kapishrc");
@@ -24,7 +24,7 @@ void readfile(){
             exit(0);
         }
     }
-    fclose(file);   
+    fclose(file); */  
 }
 //built in setenv
 void cUnsetenv(char** line){
