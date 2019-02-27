@@ -7,9 +7,11 @@
 
 //handle file
 void readfile(){
-    char name[256]; 
+    char name[200]; 
     printf("HOME : %s\n", getenv("HOME"));
-    strcat(strcpy(name, getenv("HOME")), ".kapishrc");
+    strcpy(name, getenv("HOME"));
+    printf("name : %s",name);
+    strcat(name, ".kapishrc");
     printf("name : %s",name);
     FILE* file = fopen(name, "r"); 
     char line[520];
