@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <signal.h>
 
 //handle file
 void readfile(){
@@ -85,6 +86,8 @@ void cFork(char** line){
    if(id==0) {//child
         execvp(line[0], line);
         printf("Error starting child prosses\n");
+    }else{
+        waitpid(id, NULL, 0);
     }
 }
 
@@ -113,12 +116,14 @@ int parse(char* line){
     }else if(strcmp(tokens[0], "cd")==0){
         cdir(tokens);
     }else{
-        cFork(tokens);//fork prosses
+        cFork(tokens);//fork all others
     }
     free(tokens);
     return 1;
 }
-
+void stop(){
+return;
+}
 void loop(){
     while(1){
         printf("? ");
@@ -131,6 +136,7 @@ void loop(){
 }
 
 int main(){
+ signal(SIGINT, stop);   
  loop();
  return 0;
 }
