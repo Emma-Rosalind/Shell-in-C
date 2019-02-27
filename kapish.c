@@ -5,24 +5,7 @@
 #include <sys/types.h>
 #include <signal.h>
 
-//handle file
-void readfile(){
-    char name[500];
-    char* path = getenv("HOME");
-    strcpy(name, path);
-   strcat(name, "/.kapishrc");
-   printf("name : %s",name);
-    
-    FILE* file = fopen(name, "r"); 
-    char line[520];
-    while (fgets(line, sizeof(line), file)) {
-        printf("%s", line); 
-        if(parse(line)==0){
-            exit(0);
-        }
-    }
-    fclose(file); 
-}
+
 //built in setenv
 void cUnsetenv(char** line){
     if(line[1] == NULL){
@@ -85,13 +68,13 @@ void cdir(char** line){
 
 //built in cd
 void cFork(char** line){
- /*pid_t id= fork();
+ pid_t id= fork();
    if(id==0) {//child
         execvp(line[0], line);
         printf("Error starting child prosses\n");
     }else{
         waitpid(id, NULL, 0);
-    }*/
+    }
 }
 
 
@@ -124,9 +107,30 @@ int parse(char* line){
     free(tokens);
     return 1;
 }
+
 void stop(){
 return;
 }
+
+//handle file
+void readfile(){
+    char name[500];
+    char* path = getenv("HOME");
+    strcpy(name, path);
+   strcat(name, "/.kapishrc");
+   printf("name : %s",name);
+    
+    FILE* file = fopen(name, "r"); 
+    char line[520];
+    while (fgets(line, sizeof(line), file)) {
+        printf("%s", line); 
+        if(parse(line)==0){
+            exit(0);
+        }
+    }
+    fclose(file); 
+}
+
 void loop(){
     while(1){
         printf("? ");
